@@ -90,6 +90,18 @@ class GoalCard extends StatelessWidget {
                       style: AppTypography.caption.copyWith(color: Colors.white),
                     ),
                   ),
+                if (onDelete != null)
+                  Padding(
+                    padding: const EdgeInsets.only(left: AppSpacing.md),
+                    child: GestureDetector(
+                      onTap: onDelete,
+                      child: Icon(
+                        Icons.close_rounded,
+                        color: AppColors.error,
+                        size: 24,
+                      ),
+                    ),
+                  ),
               ],
             ),
             const SizedBox(height: AppSpacing.lg),

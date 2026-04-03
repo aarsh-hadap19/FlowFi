@@ -54,7 +54,7 @@ class _AmountInputState extends State<AmountInput> {
           decoration: InputDecoration(
             hintText: widget.hint,
             hintStyle: AppTypography.body1.copyWith(color: AppColors.textTertiary),
-            prefixText: '\$ ',
+            prefixText: '₹ ',
             prefixStyle: AppTypography.body1,
             filled: true,
             fillColor: _focusNode.hasFocus ? AppColors.primaryLight : AppColors.surfaceVariant,

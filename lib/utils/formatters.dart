@@ -54,16 +54,16 @@ class DateFormatter {
 
 class CurrencyFormatter {
   static String formatAmount(double amount) {
-    return '\$${amount.toStringAsFixed(2)}';
+    return '₹${amount.toStringAsFixed(2)}';
   }
 
   static String formatAmountCompact(double amount) {
     if (amount >= 1000000) {
-      return '\$${(amount / 1000000).toStringAsFixed(1)}M';
+      return '₹${(amount / 1000000).toStringAsFixed(1)}M';
     } else if (amount >= 1000) {
-      return '\$${(amount / 1000).toStringAsFixed(1)}K';
+      return '₹${(amount / 1000).toStringAsFixed(1)}K';
     } else {
-      return '\$${amount.toStringAsFixed(2)}';
+      return '₹${amount.toStringAsFixed(2)}';
     }
   }
 

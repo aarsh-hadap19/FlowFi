@@ -33,7 +33,7 @@ class WeeklyChart extends StatelessWidget {
               tooltipMargin: 8,
               getTooltipItem: (group, groupIndex, rod, rodIndex) {
                 return BarTooltipItem(
-                  '\$${rod.toY.toStringAsFixed(2)}',
+                  '₹${rod.toY.toStringAsFixed(2)}',
                   const TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,

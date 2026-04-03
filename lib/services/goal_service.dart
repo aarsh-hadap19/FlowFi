@@ -25,8 +25,14 @@ class GoalService {
   }
 
   // Get goals as a stream
-  Stream<List<Goal>> watchGoals() {
-    return _goalsBox.watch().map((_) => getAllGoals());
+  Stream<List<Goal>> watchGoals() async* {
+    // Emit current state first
+    yield getAllGoals();
+    
+    // Then listen for changes
+    await for (final _ in _goalsBox.watch()) {
+      yield getAllGoals();
+    }
   }
 
   // Get goal by ID

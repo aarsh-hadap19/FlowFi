@@ -9,17 +9,23 @@ class DummyDataService {
   DummyDataService(this.transactionService, this.goalService);
 
   Future<void> initializeDummyData() async {
-    // Check if data already exists
+    // Check if data already exists (both transactions and goals)
     final existingTransactions = transactionService.getAllTransactions();
-    if (existingTransactions.isNotEmpty) {
+    final existingGoals = goalService.getAllGoals();
+    
+    if (existingTransactions.isNotEmpty && existingGoals.isNotEmpty) {
       return; // Data already initialized
     }
 
-    // Create dummy transactions
-    await _createDummyTransactions();
+    // Create dummy transactions only if they don't exist
+    if (existingTransactions.isEmpty) {
+      await _createDummyTransactions();
+    }
 
-    // Create dummy goal
-    await _createDummyGoal();
+    // Create dummy goal only if goals don't exist
+    if (existingGoals.isEmpty) {
+      await _createDummyGoal();
+    }
   }
 
   Future<void> _createDummyTransactions() async {

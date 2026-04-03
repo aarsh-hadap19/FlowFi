@@ -227,7 +227,7 @@ Data is persisted across app sessions automatically.
 
 1. **No Backend**: This is a local-only app. Data is not synced to cloud.
 2. **Single User**: No multi-user or authentication support.
-3. **Single Currency**: Uses USD ($) throughout the app.
+3. **Single Currency**: Uses INR (₹) throughout the app.
 4. **No Recurring Transactions**: All transactions must be entered manually.
 5. **No Budget Enforcement**: Goals don't block actions, they're informational.
 6. **No Export**: Data stays in the app (could be added as enhancement).

@@ -2,7 +2,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flowfi/models/models.dart';
 import 'package:flowfi/services/services.dart';
 
-// Service providers
+// Service providers - cached as app-lifetime singletons
 final transactionServiceProvider = Provider((ref) {
   return TransactionService();
 });
@@ -39,62 +39,75 @@ final allGoalsProvider = StreamProvider((ref) {
 });
 
 final activeGoalsProvider = FutureProvider((ref) async {
+  final _ = ref.watch(allGoalsProvider);
   final goalService = ref.watch(goalServiceProvider);
   return goalService.getActiveGoals();
 });
 
 final primaryNoSpendGoalProvider = FutureProvider((ref) async {
+  final _ = ref.watch(allGoalsProvider);
   final goalService = ref.watch(goalServiceProvider);
   return goalService.getPrimaryNoSpendGoal();
 });
 
-// Analytics providers
+// Analytics providers - watch transaction stream to ensure reactivity
 final currentBalanceProvider = FutureProvider((ref) async {
+  // Watch allTransactionsProvider to trigger recalculation when transactions change
+  final _ = ref.watch(allTransactionsProvider);
   final analyticsService = ref.watch(analyticsServiceProvider);
   return analyticsService.calculateBalance();
 });
 
 final totalIncomeProvider = FutureProvider((ref) async {
+  final _ = ref.watch(allTransactionsProvider);
   final analyticsService = ref.watch(analyticsServiceProvider);
   return analyticsService.calculateTotalIncome();
 });
 
 final totalExpensesProvider = FutureProvider((ref) async {
+  final _ = ref.watch(allTransactionsProvider);
   final analyticsService = ref.watch(analyticsServiceProvider);
   return analyticsService.calculateTotalExpenses();
 });
 
 final highestSpendingCategoryProvider = FutureProvider((ref) async {
+  final _ = ref.watch(allTransactionsProvider);
   final analyticsService = ref.watch(analyticsServiceProvider);
   return analyticsService.getHighestSpendingCategory();
 });
 
 final spendingByCategoryProvider = FutureProvider((ref) async {
+  final _ = ref.watch(allTransactionsProvider);
   final analyticsService = ref.watch(analyticsServiceProvider);
   return analyticsService.getSpendingByCategory();
 });
 
 final weeklySpendingTrendProvider = FutureProvider((ref) async {
+  final _ = ref.watch(allTransactionsProvider);
   final analyticsService = ref.watch(analyticsServiceProvider);
   return analyticsService.getWeeklySpendingTrend();
 });
 
 final weekLabelsProvider = FutureProvider((ref) async {
+  final _ = ref.watch(allTransactionsProvider);
   final analyticsService = ref.watch(analyticsServiceProvider);
   return analyticsService.getWeekLabels();
 });
 
 final weeklyComparisonProvider = FutureProvider((ref) async {
+  final _ = ref.watch(allTransactionsProvider);
   final analyticsService = ref.watch(analyticsServiceProvider);
   return analyticsService.compareWeeklySpending();
 });
 
 final smartInsightProvider = FutureProvider((ref) async {
+  final _ = ref.watch(allTransactionsProvider);
   final analyticsService = ref.watch(analyticsServiceProvider);
   return analyticsService.getSmartInsight();
 });
 
 final savingProgressProvider = FutureProvider((ref) async {
+  final _ = ref.watch(allTransactionsProvider);
   final analyticsService = ref.watch(analyticsServiceProvider);
   return analyticsService.getSavingProgress();
 });

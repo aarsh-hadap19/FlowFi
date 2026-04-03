@@ -20,8 +20,14 @@ class TransactionService {
   }
 
   // Get transactions as a stream
-  Stream<List<Transaction>> watchTransactions() {
-    return _transactionsBox.watch().map((_) => getAllTransactions());
+  Stream<List<Transaction>> watchTransactions() async* {
+    // Emit current state first
+    yield getAllTransactions();
+    
+    // Then listen for changes
+    await for (final _ in _transactionsBox.watch()) {
+      yield getAllTransactions();
+    }
   }
 
   // Get transaction by ID

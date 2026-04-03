@@ -30,7 +30,12 @@ class HomeScreen extends ConsumerWidget {
             child: Center(
               child: GestureDetector(
                 onTap: () {
-                  // Settings or profile action
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      content: Text('Settings coming soon!'),
+                      duration: Duration(seconds: 2),
+                    ),
+                  );
                 },
                 child: Icon(Icons.settings_rounded, color: AppColors.primary),
               ),

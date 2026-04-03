@@ -115,7 +115,7 @@ class _CategoryPieChartState extends State<CategoryPieChart> {
                         style: AppTypography.caption,
                       ),
                       Text(
-                        '\$${entry.value.toStringAsFixed(2)}',
+                        '₹${entry.value.toStringAsFixed(2)}',
                         style: AppTypography.body2.copyWith(fontWeight: FontWeight.w600),
                       ),
                     ],

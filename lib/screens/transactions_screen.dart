@@ -57,7 +57,7 @@ class _TransactionsScreenState extends ConsumerState<TransactionsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final allTransactions = ref.watch(sortedTransactionsProvider);
+    final allTransactions = ref.watch(allTransactionsProvider);
     final transactionService = ref.read(transactionServiceProvider);
 
     return Scaffold(
