@@ -6,14 +6,12 @@ class BalanceCard extends StatelessWidget {
   final double balance;
   final double income;
   final double expenses;
-  final double savingsProgress;
 
   const BalanceCard({
     Key? key,
     required this.balance,
     required this.income,
     required this.expenses,
-    required this.savingsProgress,
   }) : super(key: key);
 
   @override
@@ -63,37 +61,7 @@ class BalanceCard extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(height: AppSpacing.lg),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'Savings Progress',
-                    style: AppTypography.body2.copyWith(color: Colors.white70),
-                  ),
-                  Text(
-                    '${(savingsProgress * 100).toStringAsFixed(0)}%',
-                    style: AppTypography.body2.copyWith(color: Colors.white),
-                  ),
-                ],
-              ),
-              const SizedBox(height: AppSpacing.sm),
-              ClipRRect(
-                borderRadius: BorderRadius.circular(AppRadius.pill),
-                child: LinearProgressIndicator(
-                  value: savingsProgress.clamp(0.0, 1.0),
-                  minHeight: 6,
-                  backgroundColor: Colors.white24,
-                  valueColor: AlwaysStoppedAnimation<Color>(
-                    Colors.white.withValues(alpha: 0.8),
-                  ),
-                ),
-              ),
-            ],
-          ),
+
         ],
       ),
     );

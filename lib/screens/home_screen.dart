@@ -13,7 +13,6 @@ class HomeScreen extends ConsumerWidget {
     final balance = ref.watch(currentBalanceProvider);
     final income = ref.watch(totalIncomeProvider);
     final expenses = ref.watch(totalExpensesProvider);
-    final savingProgress = ref.watch(savingProgressProvider);
     final insight = ref.watch(smartInsightProvider);
     final primaryGoal = ref.watch(primaryNoSpendGoalProvider);
     final weeklyTrend = ref.watch(weeklySpendingTrendProvider);
@@ -52,18 +51,10 @@ class HomeScreen extends ConsumerWidget {
             balance.when(
               data: (balanceData) => income.when(
                 data: (incomeData) => expenses.when(
-                  data: (expensesData) => savingProgress.when(
-                    data: (progressData) => BalanceCard(
-                      balance: balanceData,
-                      income: incomeData,
-                      expenses: expensesData,
-                      savingsProgress: progressData,
-                    ),
-                    loading: () => const LoadingWidget(message: 'Loading balance...'),
-                    error: (err, st) => ErrorStateWidget(
-                      title: 'Error',
-                      description: err.toString(),
-                    ),
+                  data: (expensesData) => BalanceCard(
+                    balance: balanceData,
+                    income: incomeData,
+                    expenses: expensesData,
                   ),
                   loading: () => const LoadingWidget(),
                   error: (err, st) => ErrorStateWidget(

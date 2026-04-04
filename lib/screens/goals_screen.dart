@@ -44,7 +44,7 @@ class _GoalsScreenState extends ConsumerState<GoalsScreenWidget> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text('Active Goals', style: AppTypography.headline3),
-                const SizedBox(height: AppSpacing.md),
+                const SizedBox(height: AppSpacing.sm),
                 ...goals
                     .where((g) => g.isActive)
                     .map(
@@ -69,7 +69,7 @@ class _GoalsScreenState extends ConsumerState<GoalsScreenWidget> {
                 if (goals.any((g) => !g.isActive)) ...[
                   const SizedBox(height: AppSpacing.lg),
                   Text('Completed Goals', style: AppTypography.headline3),
-                  const SizedBox(height: AppSpacing.md),
+                  const SizedBox(height: AppSpacing.sm),
                   ...goals
                       .where((g) => !g.isActive)
                       .map(

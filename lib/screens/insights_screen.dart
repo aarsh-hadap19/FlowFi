@@ -29,7 +29,7 @@ class InsightsScreen extends ConsumerWidget {
           children: [
             // Highest Spending Category
             Text('Top Spending Category', style: AppTypography.headline3),
-            const SizedBox(height: AppSpacing.md),
+            const SizedBox(height: AppSpacing.sm),
             highestCategory.when(
               data: (category) {
                 final emoji = _getCategoryEmoji(category);
@@ -72,10 +72,12 @@ class InsightsScreen extends ConsumerWidget {
             ),
 
             const SizedBox(height: AppSpacing.lg),
+            Divider(color: AppColors.border, height: 1),
+            const SizedBox(height: AppSpacing.lg),
 
             // Weekly Comparison
             Text('Weekly Trend', style: AppTypography.headline3),
-            const SizedBox(height: AppSpacing.md),
+            const SizedBox(height: AppSpacing.sm),
             weeklyComparison.when(
               data: (comparison) {
                 final thisWeek = comparison['thisWeek'] as double;
@@ -160,10 +162,12 @@ class InsightsScreen extends ConsumerWidget {
             ),
 
             const SizedBox(height: AppSpacing.lg),
+            Divider(color: AppColors.border, height: 1),
+            const SizedBox(height: AppSpacing.lg),
 
             // Daily Average
             Text('Daily Average', style: AppTypography.headline3),
-            const SizedBox(height: AppSpacing.md),
+            const SizedBox(height: AppSpacing.sm),
             dailyAverage.when(
               data: (average) => Container(
                 padding: const EdgeInsets.all(AppSpacing.lg),
@@ -193,10 +197,12 @@ class InsightsScreen extends ConsumerWidget {
             ),
 
             const SizedBox(height: AppSpacing.lg),
+            Divider(color: AppColors.border, height: 1),
+            const SizedBox(height: AppSpacing.lg),
 
             // Category Breakdown
             Text('Spending by Category', style: AppTypography.headline3),
-            const SizedBox(height: AppSpacing.md),
+            const SizedBox(height: AppSpacing.sm),
             spendingByCategory.when(
               data: (categoryData) {
                 if (categoryData.isEmpty) {
@@ -220,10 +226,12 @@ class InsightsScreen extends ConsumerWidget {
             ),
 
             const SizedBox(height: AppSpacing.lg),
+            Divider(color: AppColors.border, height: 1),
+            const SizedBox(height: AppSpacing.lg),
 
             // More Insights
             Text('More Stats', style: AppTypography.headline3),
-            const SizedBox(height: AppSpacing.md),
+            const SizedBox(height: AppSpacing.sm),
             frequentType.when(
               data: (type) => Container(
                 padding: const EdgeInsets.all(AppSpacing.lg),
