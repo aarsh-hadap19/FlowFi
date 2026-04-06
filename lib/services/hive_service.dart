@@ -8,13 +8,10 @@ class HiveService {
 
   static Future<void> initialize() async {
     await Hive.initFlutter();
-
-    // Register adapters
     Hive.registerAdapter(TransactionAdapter());
     Hive.registerAdapter(GoalAdapter());
     Hive.registerAdapter(SavingsStreakAdapter());
 
-    // Open boxes
     await Hive.openBox<Transaction>(transactionsBox);
     await Hive.openBox<Goal>(goalsBox);
     await Hive.openBox<SavingsStreak>(streakBox);

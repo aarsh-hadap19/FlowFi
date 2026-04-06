@@ -18,25 +18,25 @@ class Goal extends HiveObject {
   late String name;
 
   @HiveField(2)
-  late String type; // 'noSpendChallenge', 'savingsTarget', 'budgetLimit'
+  late String type;
 
   @HiveField(3)
-  late int targetDays; // For no-spend: number of days
+  late int targetDays;
 
   @HiveField(4)
-  late int currentDays; // Current streak
+  late int currentDays;
 
   @HiveField(5)
-  late double? targetAmount; // For savings/budget goals
+  late double? targetAmount;
 
   @HiveField(6)
-  late double currentAmount; // Current saved/spent
+  late double currentAmount;
 
   @HiveField(7)
   late DateTime startDate;
 
   @HiveField(8)
-  late DateTime? lastResetDate; // For streaks
+  late DateTime? lastResetDate;
 
   @HiveField(9)
   late bool isActive;

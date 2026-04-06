@@ -50,9 +50,8 @@ final primaryNoSpendGoalProvider = FutureProvider((ref) async {
   return goalService.getPrimaryNoSpendGoal();
 });
 
-// Analytics providers - watch transaction stream to ensure reactivity
+// Analytics providers
 final currentBalanceProvider = FutureProvider((ref) async {
-  // Watch allTransactionsProvider to trigger recalculation when transactions change
   final _ = ref.watch(allTransactionsProvider);
   final analyticsService = ref.watch(analyticsServiceProvider);
   return analyticsService.calculateBalance();

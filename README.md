@@ -18,7 +18,6 @@ This is NOT a banking app. It's a personal finance tracker focused on self-aware
 ### 1. **Home Dashboard**
 - Current balance calculation (income - expenses)
 - Total income and expense overview
-- Savings progress indicator
 - Weekly spending trend visualization
 - Smart insights (e.g., "You spent more than usual today")
 - Quick access to your active goals
@@ -244,10 +243,44 @@ Data is persisted across app sessions automatically.
 - Custom categories
 - Data import from other apps
 
+## 📸 Screenshots
+
+To add screenshots to this section:
+
+1. **Capture screenshots from the running app**
+   ```bash
+   flutter run
+   ```
+   Then use your emulator/device to capture screenshots for:
+   - Home Dashboard (balance, weekly chart, active goals)
+   - Transactions Screen (transaction list with filters)
+   - Add Transaction (form with amount input, category selection)
+   - Goals Screen (goal management and tracking)
+   - Insights Screen (analytics with charts and trends)
+
+2. **Place screenshots in a `screenshots/` directory**
+   ```
+   screenshots/
+   ├── 01-home-dashboard.png
+   ├── 02-transactions.png
+   ├── 03-add-transaction.png
+   ├── 04-goals.png
+   └── 05-insights.png
+   ```
+
+3. **Add image links to this section**
+   ```markdown
+   ![Home Dashboard](screenshots/01-home-dashboard.png)
+   ![Transactions](screenshots/02-transactions.png)
+   ![Add Transaction](screenshots/03-add-transaction.png)
+   ![Goals](screenshots/04-goals.png)
+   ![Insights](screenshots/05-insights.png)
+   ```
+
 ## 📸 Key Screens
 
 ### Home Dashboard
-Displays balance, income/expenses, savings progress, weekly chart, and active goals.
+Displays balance, income/expenses, weekly chart, and active goals.
 
 ### Transactions
 Browse all transactions grouped by date with filtering and search capabilities.

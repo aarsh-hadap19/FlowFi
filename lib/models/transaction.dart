@@ -67,7 +67,7 @@ class Transaction extends HiveObject {
   late double amount;
 
   @HiveField(2)
-  late String type; // 'income' or 'expense'
+  late String type;
 
   @HiveField(3)
   late String category;
@@ -94,7 +94,6 @@ class Transaction extends HiveObject {
     this.createdAt = createdAt ?? DateTime.now();
   }
 
-  // Convenience getters
   TransactionType get transactionType =>
       type == 'income' ? TransactionType.income : TransactionType.expense;
 
@@ -106,7 +105,6 @@ class Transaction extends HiveObject {
     }
   }
 
-  // Copy with method for editing
   Transaction copyWith({
     String? id,
     double? amount,

@@ -5,13 +5,13 @@ part 'savings_streak.g.dart';
 @HiveType(typeId: 2)
 class SavingsStreak extends HiveObject {
   @HiveField(0)
-  late int currentStreak; // Number of consecutive days with no spending
+  late int currentStreak;
 
   @HiveField(1)
-  late int longestStreak; // Historical longest streak
+  late int longestStreak;
 
   @HiveField(2)
-  late DateTime? lastUpdated; // Last day a transaction was checked
+  late DateTime? lastUpdated;
 
   @HiveField(3)
   late DateTime createdAt;

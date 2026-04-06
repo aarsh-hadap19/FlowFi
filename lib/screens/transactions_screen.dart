@@ -36,12 +36,10 @@ class _TransactionsScreenState extends ConsumerState<TransactionsScreen> {
   List<Transaction> _filterTransactions(List<Transaction> transactions) {
     var filtered = transactions;
 
-    // Filter by type
     if (_filterType != 'all') {
       filtered = filtered.where((t) => t.type == _filterType).toList();
     }
 
-    // Filter by search query
     if (_searchQuery.isNotEmpty) {
       filtered = filtered.where((t) {
         final noteMatch = t.note?.toLowerCase().contains(_searchQuery.toLowerCase()) ?? false;
@@ -50,7 +48,6 @@ class _TransactionsScreenState extends ConsumerState<TransactionsScreen> {
       }).toList();
     }
 
-    // Sort by date (newest first)
     filtered.sort((a, b) => b.date.compareTo(a.date));
     return filtered;
   }

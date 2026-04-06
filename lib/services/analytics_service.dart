@@ -5,7 +5,6 @@ class AnalyticsService {
 
   AnalyticsService(this._transactionService);
 
-  // Calculate current balance (income - expenses)
   double calculateBalance() {
     final transactions = _transactionService.getAllTransactions();
     double income = 0;
@@ -22,21 +21,18 @@ class AnalyticsService {
     return income - expenses;
   }
 
-  // Total income
   double calculateTotalIncome() {
     return _transactionService
         .getTransactionsByType('income')
         .fold(0.0, (sum, t) => sum + t.amount);
   }
 
-  // Total expenses
   double calculateTotalExpenses() {
     return _transactionService
         .getTransactionsByType('expense')
         .fold(0.0, (sum, t) => sum + t.amount);
   }
 
-  // Get highest spending category
   String getHighestSpendingCategory() {
     final expenses = _transactionService.getTransactionsByType('expense');
     if (expenses.isEmpty) return 'None';
@@ -51,7 +47,6 @@ class AnalyticsService {
     return highestCategory.key;
   }
 
-  // Get spending by category
   Map<String, double> getSpendingByCategory() {
     final expenses = _transactionService.getTransactionsByType('expense');
     final categoryMap = <String, double>{};
@@ -64,7 +59,6 @@ class AnalyticsService {
     return categoryMap;
   }
 
-  // Get weekly spending trend
   List<double> getWeeklySpendingTrend() {
     final now = DateTime.now();
     final weeklyData = List<double>.filled(7, 0.0);
@@ -80,7 +74,6 @@ class AnalyticsService {
     return weeklyData;
   }
 
-  // Get weekly labels (Mon, Tue, etc.)
   List<String> getWeekLabels() {
     final now = DateTime.now();
     final labels = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
@@ -95,7 +88,6 @@ class AnalyticsService {
     return adjustedLabels;
   }
 
-  // Compare this week vs last week spending
   Map<String, double> compareWeeklySpending() {
     final now = DateTime.now();
     final startOfThisWeek = now.subtract(Duration(days: now.weekday - 1));
@@ -119,7 +111,6 @@ class AnalyticsService {
     };
   }
 
-  // Get monthly spending trend
   List<double> getMonthlySpendings() {
     final now = DateTime.now();
     final monthlyData = List<double>.filled(12, 0.0);
@@ -141,7 +132,6 @@ class AnalyticsService {
     return monthlyData;
   }
 
-  // Get smart insight text
   String getSmartInsight() {
     final today = DateTime.now();
     final yesterdayTransactions =
@@ -164,7 +154,6 @@ class AnalyticsService {
     }
   }
 
-  // Get saving progress (if a savings goal is set)
   double getSavingProgress() {
     final totalIncome = calculateTotalIncome();
     final totalExpenses = calculateTotalExpenses();
@@ -173,7 +162,6 @@ class AnalyticsService {
     return (savings / totalIncome).clamp(0, 1);
   }
 
-  // Get frequent transaction type
   String getFrequentTransactionType() {
     final transactions = _transactionService.getAllTransactions();
     if (transactions.isEmpty) return 'Unknown';
@@ -192,7 +180,6 @@ class AnalyticsService {
     return incomeCount > expenseCount ? 'Income' : 'Expense';
   }
 
-  // Get daily average spending
   double getDailyAverageSpending() {
     final transactions = _transactionService.getAllTransactions();
     if (transactions.isEmpty) return 0;

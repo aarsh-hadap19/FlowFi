@@ -9,20 +9,17 @@ class DummyDataService {
   DummyDataService(this.transactionService, this.goalService);
 
   Future<void> initializeDummyData() async {
-    // Check if data already exists (both transactions and goals)
     final existingTransactions = transactionService.getAllTransactions();
     final existingGoals = goalService.getAllGoals();
     
     if (existingTransactions.isNotEmpty && existingGoals.isNotEmpty) {
-      return; // Data already initialized
+      return;
     }
 
-    // Create dummy transactions only if they don't exist
     if (existingTransactions.isEmpty) {
       await _createDummyTransactions();
     }
 
-    // Create dummy goal only if goals don't exist
     if (existingGoals.isEmpty) {
       await _createDummyGoal();
     }
@@ -32,12 +29,10 @@ class DummyDataService {
     final now = DateTime.now();
     final transactions = <Transaction>[];
 
-    // Helper function to create a date
     DateTime createDate(int daysAgo, {int hour = 10}) {
       return DateTime(now.year, now.month, now.day - daysAgo, hour);
     }
 
-    // Today's transactions
     transactions.addAll([
       Transaction(
         amount: 25.50,
@@ -55,7 +50,6 @@ class DummyDataService {
       ),
     ]);
 
-    // Yesterday
     transactions.addAll([
       Transaction(
         amount: 45.00,
@@ -73,7 +67,6 @@ class DummyDataService {
       ),
     ]);
 
-    // 2 days ago
     transactions.addAll([
       Transaction(
         amount: 60.00,
@@ -91,7 +84,6 @@ class DummyDataService {
       ),
     ]);
 
-    // 3 days ago
     transactions.addAll([
       Transaction(
         amount: 150.00,
@@ -109,7 +101,6 @@ class DummyDataService {
       ),
     ]);
 
-    // 4 days ago
     transactions.addAll([
       Transaction(
         amount: 55.00,
@@ -127,7 +118,6 @@ class DummyDataService {
       ),
     ]);
 
-    // 5 days ago
     transactions.addAll([
       Transaction(
         amount: 89.99,
@@ -145,7 +135,6 @@ class DummyDataService {
       ),
     ]);
 
-    // 6 days ago
     transactions.addAll([
       Transaction(
         amount: 15.00,
@@ -163,7 +152,6 @@ class DummyDataService {
       ),
     ]);
 
-    // 7 days ago
     transactions.addAll([
       Transaction(
         amount: 200.00,
@@ -181,7 +169,6 @@ class DummyDataService {
       ),
     ]);
 
-    // 8-14 days ago - varied transactions
     transactions.addAll([
       Transaction(
         amount: 2500.00,
@@ -234,7 +221,6 @@ class DummyDataService {
       ),
     ]);
 
-    // Save all transactions
     for (var transaction in transactions) {
       await transactionService.addTransaction(transaction);
     }
@@ -248,12 +234,11 @@ class DummyDataService {
       startDate: DateTime.now(),
     );
 
-    goal.currentDays = 1; // Started 1 day ago
+    goal.currentDays = 1;
 
     await goalService.addGoal(goal);
   }
 
-  // Clear all dummy data (for testing)
   Future<void> clearAllData() async {
     await transactionService.clearAll();
     await goalService.clearAll();
