@@ -245,37 +245,13 @@ Data is persisted across app sessions automatically.
 
 ## 📸 Screenshots
 
-To add screenshots to this section:
+| Home | Transactions |
+|------|-------------|
+| ![](screenshots/home_screen.png) | ![](screenshots/transactions_screen.png) |
 
-1. **Capture screenshots from the running app**
-   ```bash
-   flutter run
-   ```
-   Then use your emulator/device to capture screenshots for:
-   - Home Dashboard (balance, weekly chart, active goals)
-   - Transactions Screen (transaction list with filters)
-   - Add Transaction (form with amount input, category selection)
-   - Goals Screen (goal management and tracking)
-   - Insights Screen (analytics with charts and trends)
-
-2. **Place screenshots in a `screenshots/` directory**
-   ```
-   screenshots/
-   ├── 01-home-dashboard.png
-   ├── 02-transactions.png
-   ├── 03-add-transaction.png
-   ├── 04-goals.png
-   └── 05-insights.png
-   ```
-
-3. **Add image links to this section**
-   ```markdown
-   ![Home Dashboard](screenshots/01-home-dashboard.png)
-   ![Transactions](screenshots/02-transactions.png)
-   ![Add Transaction](screenshots/03-add-transaction.png)
-   ![Goals](screenshots/04-goals.png)
-   ![Insights](screenshots/05-insights.png)
-   ```
+| Goals | Insights |
+|------|----------|
+| ![](screenshots/goals_screen.png) | ![](screenshots/insights_screen.png) |
 
 ## 📸 Key Screens
 
